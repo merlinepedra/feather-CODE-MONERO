@@ -81,7 +81,7 @@ jobs:
             /home/runner/work/feather/feather/build/x86_64-w64-mingw32/release/bin/feather.exe
 
   macos:
-    runs-on: macOS-latest
+    runs-on: macOS-10.15
     steps:
       - uses: actions/checkout@v1
         with:
