@@ -101,6 +101,7 @@ endif()
 find_package(Boost 1.58 REQUIRED COMPONENTS
         system
         filesystem
+        atomic
         thread
         date_time
         chrono
