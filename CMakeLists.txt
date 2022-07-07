@@ -41,7 +41,7 @@ set(USE_SINGLE_BUILDDIR ON)
 check_include_file(sys/prctl.h HAVE_SYS_PRCTL_H)
 check_symbol_exists(prctl "sys/prctl.h" HAVE_PRCTL)
 
-if(STATIC OR APPLE)
+if(STATIC)
     message(STATUS "Initiating static build, turning on manual submodules")
     set(MANUAL_SUBMODULES 1)
 
