@@ -13,6 +13,8 @@ jobs:
         run: HOMEBREW_NO_AUTO_UPDATE=1 brew install qt@5 libsodium libzip qrencode unbound cmake hidapi openssl expat libunwind-headers protobuf pkgconfig zbar
       - name: buikd boost
         run: HOMEBREW_OPTFLAGS="-march=core2" HOMEBREW_OPTIMIZATION_LEVEL="O0" HOMEBREW_NO_AUTO_UPDATE=1 brew install --build-from-source boost
+      - name: install polyseed
+        run: git clone https://github.com/tevador/polyseed.git && cd polyseed && git reset --hard e38516561c647522e2e2608f13eabdeab61d9a5d && cmake . && make && make install
       - name: build
         run: CMAKE_PREFIX_PATH=/usr/local/opt/qt@5/ make mac-release -j3
       - name: create .tar
