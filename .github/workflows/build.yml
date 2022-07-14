@@ -10,7 +10,9 @@ jobs:
         with:
           submodules: recursive
       - name: install dependencies
-        run: HOMEBREW_NO_AUTO_UPDATE=1 brew install qt@5 libsodium libzip qrencode unbound cmake hidapi openssl expat libunwind-headers protobuf pkgconfig zbar boost@1.76
+        run: HOMEBREW_NO_AUTO_UPDATE=1 brew install qt@5 libsodium libzip qrencode unbound cmake hidapi openssl expat libunwind-headers protobuf pkgconfig zbar
+      - name: install boost 1.75.0
+        run: HOMEBREW_OPTFLAGS="-march=core2" HOMEBREW_OPTIMIZATION_LEVEL="O0" HOMEBREW_NO_AUTO_UPDATE=1 brew install --build-from-source https://raw.githubusercontent.com/Homebrew/homebrew-core/7bee008fe6aa30fe1ebbaaa2f70e98f4b0565e3a/Formula/boost.rb
       - name: install polyseed
         run: git clone https://github.com/tevador/polyseed.git && cd polyseed && git reset --hard e38516561c647522e2e2608f13eabdeab61d9a5d && cmake . && make && make install
       - name: build
