@@ -14,7 +14,7 @@ jobs:
       - name: install polyseed
         run: git clone https://github.com/tevador/polyseed.git && cd polyseed && git reset --hard e38516561c647522e2e2608f13eabdeab61d9a5d && cmake . && make && make install
       - name: build
-        run: CMAKE_PREFIX_PATH='/usr/local/opt/qt@5/;/usr/local/opt/boost@1.76/' make mac-release -j3
+        run: CMAKE_PREFIX_PATH='/usr/local/opt/qt@5/' CMAKE_INCLUDE_PATH=/usr/local/opt/boost@1.76/include LDFLAGS="-L/usr/local/opt/boost@1.76/lib" make mac-release -j3
       - name: create .tar
         run: tar -cf feather.tar feather.app
         working-directory: build/bin
