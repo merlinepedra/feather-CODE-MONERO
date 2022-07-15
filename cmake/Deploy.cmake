@@ -27,7 +27,7 @@ if(APPLE OR (WIN32 AND NOT STATIC))
 
                add_custom_command(TARGET deploy
                 POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy /use/local/lib/libboost_system-mt.dylib $<TARGET_FILE_DIR:feather>/../Frameworks/
+                COMMAND ${CMAKE_COMMAND} -E copy /usr/local/lib/libboost_system-mt.dylib $<TARGET_FILE_DIR:feather>/../Frameworks/
                 )
     endif()
 endif()
